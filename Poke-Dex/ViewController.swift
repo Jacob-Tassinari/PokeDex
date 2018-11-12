@@ -30,7 +30,8 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.textView.text = json[].stringValue
+                print(json)
+                self.textView.text = json.rawString()
             case .failure(let error):
                 self.textView.text = "Invaild selection entered or anerror occured. Please try again."
                 print(error.localizedDescription)
