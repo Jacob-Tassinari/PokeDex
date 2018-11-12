@@ -24,7 +24,18 @@ class ViewController: UIViewController {
             return
         }
         let pokeNameURLComponent = pokeName.replacingOccurrences(of: " ", with: "")
-        let requestURLComponet = URLBase + pokeNameURLComponent + "/"
+        let requestURL = URLBase + pokeNameURLComponent + "/"
+        
+        Alamofire.request(requestURL).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.textView.text = json[].stringValue
+            case .failure(let error):
+                self.textView.text = "Invaild selection entered or anerror occured. Please try again."
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
