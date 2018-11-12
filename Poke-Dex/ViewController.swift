@@ -11,13 +11,20 @@ import SwiftyJSON
 import Alamofire
 
 class ViewController: UIViewController {
-    let URLBase = "https://pokeapi.co/api/v2/"
+    let URLBase = "https://pokeapi.co/api/v2/pokemon/"
     @IBOutlet var userinput: UITextField!
     @IBOutlet var textView: UITextView!
     @IBAction func searchTapped(_ sender: Any) {
         // turn off keyboard
         userinput.resignFirstResponder()
         
+        //verification
+        guard let pokeName = userinput.text,
+            userinput.text != " "else{
+            return
+        }
+        let pokeNameURLComponent = pokeName.replacingOccurrences(of: " ", with: "")
+        let requestURLComponet = URLBase + pokeNameURLComponent + "/"
     }
 }
 
