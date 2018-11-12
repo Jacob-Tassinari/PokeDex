@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    let URLBase = "https://pokeapi.co/api/v2/"
+    @IBOutlet var userinput: UITextField!
+    @IBOutlet var textView: UITextView!
+    @IBAction func searchTapped(_ sender: Any) {
+        // turn off keyboard
+        userinput.resignFirstResponder()
+        
     }
-
-
 }
 
