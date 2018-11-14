@@ -8,4 +8,5 @@ target 'Poke-Dex' do
   # Pods for Poke-Dex
 	pod 'SwiftyJSON'
 	pod 'Alamofire'
+	pod 'SDWebImage'
 end
